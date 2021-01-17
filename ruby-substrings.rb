@@ -1,20 +1,17 @@
 def substrings(substring, in_list)
-    p "substring: #{substring}"
-    p "in_list: #{in_list}"
     count_dict = {}
-    for i in in_list
-        if substring.include?(i)
-            if count_dict.key?(i)
-                count_dict[i] += 1
-            else
-                count_dict[i] = 1
-            end
 
+    string_list = substring.split
+    for substring in string_list
+        for word in in_list
+            if substring.include?(word)
+                if count_dict.key?(word)
+                    count_dict[word] += 1
+                else
+                    count_dict[word] = 1
+                end
+            end
         end
     end
-    puts count_dict
+    count_dict
 end
-
-dict = ["word", "otherword", "ord", "word"]
-
-substrings("word", dict)
